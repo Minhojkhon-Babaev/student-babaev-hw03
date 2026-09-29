@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+.dbt/
+target/
+dbt/target/
+dbt/logs/
+dbt/.user.yml
+dbt_packages/
+airflow/logs/
+*.log
+.cursor/

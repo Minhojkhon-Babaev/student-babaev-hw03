@@ -1,0 +1,63 @@
+name: hse-dwh-hw02
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: warehouse
+      POSTGRES_PASSWORD: warehouse
+      POSTGRES_DB: warehouse
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U warehouse -d warehouse"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: "no"
+
+  airflow:
+    build: ./docker/airflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://warehouse:warehouse@postgres:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+      AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: "1"
+      AIRFLOW__CORE__PARALLELISM: "4"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/project/airflow/dags
+      AIRFLOW_HOME: /opt/airflow
+      WAREHOUSE_HOST: postgres
+      WAREHOUSE_PORT: "5432"
+      WAREHOUSE_DB: warehouse
+      WAREHOUSE_USER: warehouse
+      WAREHOUSE_PASSWORD: warehouse
+      DBT_PROFILES_DIR: /opt/project/dbt
+      PROJECT_DIR: /opt/project
+      _AIRFLOW_WWW_USER_USERNAME: student
+      _AIRFLOW_WWW_USER_PASSWORD: student
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./:/opt/project
+    user: "0:0"
+    restart: "no"
+    command: >
+      bash -lc "
+        export PATH=/home/airflow/.local/bin:/usr/local/bin:$$PATH
+        airflow db init || true
+        airflow db migrate || true
+        airflow users create --username student --password student --firstname Student --lastname Babaev --role Admin --email student@local || true
+        airflow scheduler &
+        exec airflow webserver --port 8080
+      "
+
+volumes:
+  postgres_data:
