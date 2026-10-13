@@ -1,0 +1,80 @@
+{
+  "database": "warehouse_restored_20261013t142945z",
+  "dump": "backups/warehouse_20261013T142945Z.dump",
+  "format": "custom",
+  "version": "pg_dump (PostgreSQL) 16.4 (Debian 16.4-1.pgdg120+2)",
+  "dump_bytes": 3299177,
+  "tables": {
+    "demo.mvcc_value": {
+      "rows": 1,
+      "csv_bytes": 5,
+      "sha256": "3d558b71ce32a3cb92e56d52fb574e5b6487dfc2f6955377c0c169d07ed62a06"
+    },
+    "published.repl_marker": {
+      "rows": 2,
+      "csv_bytes": 208,
+      "sha256": "d3dcc83701844525d8673a03e2b5a35d3e7f1ae0616e56e1b7e8ba22ba786c8c"
+    },
+    "published.weather_daily": {
+      "rows": 109590,
+      "csv_bytes": 10285270,
+      "sha256": "e3f2c8af6087b019d4cea8a39155c6c24b48d27a58f71409d5f2f72687b26150"
+    },
+    "published.weather_daily_p2015": {
+      "rows": 10950,
+      "csv_bytes": 1027665,
+      "sha256": "fcc85f16fc00406740187973a5766915d51bde473af627358958bb01351662ef"
+    },
+    "published.weather_daily_p2016": {
+      "rows": 10980,
+      "csv_bytes": 1030457,
+      "sha256": "cee95085c8b851b9980d6f0234b83bfef89dffa2ebf0f0137952952454be157b"
+    },
+    "published.weather_daily_p2017": {
+      "rows": 10950,
+      "csv_bytes": 1027739,
+      "sha256": "7ce3309eb3e2e2bc5a4001e2c4ff31d7d8945c3f5dc2bcdb943d55c1828df6a2"
+    },
+    "published.weather_daily_p2018": {
+      "rows": 10950,
+      "csv_bytes": 1027634,
+      "sha256": "fa5331dc0291030f4bbd5b9430b998e06827aaf40d1effbc08ab29d5378c65e5"
+    },
+    "published.weather_daily_p2019": {
+      "rows": 10950,
+      "csv_bytes": 1027669,
+      "sha256": "e2890325650cc7850bccf72fb434182742e04999eb71126b983dd439965991f0"
+    },
+    "published.weather_daily_p2020": {
+      "rows": 10980,
+      "csv_bytes": 1030586,
+      "sha256": "48c89b555bc1963160439cb0f5957e69fe3e086865cde9e83ff5a4215c1ea2b4"
+    },
+    "published.weather_daily_p2021": {
+      "rows": 10950,
+      "csv_bytes": 1027703,
+      "sha256": "b501f26ce54438d4a6b1d904d8b2dad28c8cbf87622e5e5d38f14b1d9765bcf4"
+    },
+    "published.weather_daily_p2022": {
+      "rows": 10950,
+      "csv_bytes": 1027694,
+      "sha256": "089fbeafc56cb07300915f4018334e9cc8da518ccf3ca1fca0d18dc5c3a9c13e"
+    },
+    "published.weather_daily_p2023": {
+      "rows": 10950,
+      "csv_bytes": 1027624,
+      "sha256": "fa31f5fee0ce2000ed86524336a4bdf3097f6c8272ee4c94e85a47b79df3d5d5"
+    },
+    "published.weather_daily_p2024": {
+      "rows": 10980,
+      "csv_bytes": 1030499,
+      "sha256": "18f260d13ff4226b75f57c89005ee50c5bc42ff178c719a93e549dcf06f5f013"
+    },
+    "published.weather_daily_part": {
+      "rows": 109590,
+      "csv_bytes": 10285270,
+      "sha256": "e3f2c8af6087b019d4cea8a39155c6c24b48d27a58f71409d5f2f72687b26150"
+    }
+  },
+  "restore_exit_code": 0
+}

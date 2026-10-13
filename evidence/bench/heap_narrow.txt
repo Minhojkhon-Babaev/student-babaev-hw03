@@ -1,0 +1,39 @@
+heap_narrow
+metric: server Execution Time, ms; warmup discarded
+repeats_ms: [0.081, 0.207, 0.327, 0.089, 0.073]
+median_ms: 0.089
+rows_returned: 9
+
+SET
+SET
+SET
+SET
+ city_id | observed_date | amplitude_c | min_temp_c | max_temp_c | avg_temp_c 
+---------+---------------+-------------+------------+------------+------------
+ yakutsk | 2024-06-01    |        16.5 |       11.3 |       27.8 |     20.221
+ yakutsk | 2024-06-03    |        15.9 |        8.6 |       24.5 |     17.558
+ moscow  | 2024-06-01    |        14.9 |       14.8 |       29.7 |     23.529
+ yakutsk | 2024-06-02    |        14.2 |        8.0 |       22.2 |     16.125
+ moscow  | 2024-06-02    |        12.8 |       14.7 |       27.5 |     21.742
+ moscow  | 2024-06-03    |         9.0 |       15.6 |       24.6 |     20.346
+ sochi   | 2024-06-03    |         8.0 |       16.7 |       24.7 |     21.617
+ sochi   | 2024-06-02    |         5.8 |       16.8 |       22.6 |     19.958
+ sochi   | 2024-06-01    |         3.5 |       17.8 |       21.3 |     19.729
+(9 rows)
+
+
+Sort  (cost=47.74..47.76 rows=9 width=34) (actual time=0.049..0.050 rows=9 loops=1)
+  Sort Key: amplitude_c DESC, city_id, observed_date
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=19
+  ->  Bitmap Heap Scan on weather_daily  (cost=13.37..47.60 rows=9 width=34) (actual time=0.029..0.030 rows=9 loops=1)
+        Recheck Cond: ((city_id = ANY ('{moscow,sochi,yakutsk}'::text[])) AND (observed_date >= '2024-06-01'::date) AND (observed_date < '2024-06-04'::date))
+        Heap Blocks: exact=1
+        Buffers: shared hit=10
+        ->  Bitmap Index Scan on weather_daily_pkey  (cost=0.00..13.37 rows=9 width=0) (actual time=0.025..0.025 rows=9 loops=1)
+              Index Cond: ((city_id = ANY ('{moscow,sochi,yakutsk}'::text[])) AND (observed_date >= '2024-06-01'::date) AND (observed_date < '2024-06-04'::date))
+              Buffers: shared hit=9
+Planning:
+  Buffers: shared hit=112
+Planning Time: 0.298 ms
+Execution Time: 0.071 ms

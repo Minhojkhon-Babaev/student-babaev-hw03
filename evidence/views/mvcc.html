@@ -1,0 +1,17 @@
+<!doctype html><html lang="ru"><meta charset="utf-8">
+<title>Две сессии и блокировка UPDATE</title>
+<style>
+body{font:16px system-ui;margin:28px;color:#152436;background:#f3f6fa}
+h1{font-size:24px;margin:0 0 12px}h2{font-size:16px;color:#25628f;margin:0 0 10px}
+p{color:#51657a}section{padding:20px;background:white;border:1px solid #d5dfeb;border-radius:10px;margin:18px 0}
+pre{font:13px/1.55 monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+</style><h1>ДЗ 3 · Две сессии и блокировка UPDATE</h1>
+<p>Фактический вывод выполненных команд. Источники указаны над каждым блоком.</p>
+<section><h2>mvcc_two_sessions.txt</h2><pre>A isolation = read committed
+B isolation = read committed
+A updated 10 -&gt; 20, uncommitted; B sees 10
+A COMMIT; B next SELECT sees 20
+B UPDATE waits: (876, &#x27;Lock&#x27;, &#x27;transactionid&#x27;, [875]) ; blocker A pid = 875
+A ROLLBACK releases lock; B UPDATE completes then B ROLLBACK; final value=20
+PASS: all transactions ended; mart data untouched
+</pre></section></html>

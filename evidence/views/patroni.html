@@ -1,0 +1,43 @@
+<!doctype html><html lang="ru"><meta charset="utf-8">
+<title>Роли и маркеры после switchover</title>
+<style>
+body{font:16px system-ui;margin:28px;color:#152436;background:#f3f6fa}
+h1{font-size:24px;margin:0 0 12px}h2{font-size:16px;color:#25628f;margin:0 0 10px}
+p{color:#51657a}section{padding:20px;background:white;border:1px solid #d5dfeb;border-radius:10px;margin:18px 0}
+pre{font:13px/1.55 monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+</style><h1>ДЗ 3 · Роли и маркеры после switchover</h1>
+<p>Фактический вывод выполненных команд. Источники указаны над каждым блоком.</p>
+<section><h2>patroni_roles_after.txt</h2><pre>After switchover
+[
+  {
+    &quot;Cluster&quot;: &quot;weatherhw03&quot;,
+    &quot;Member&quot;: &quot;node1&quot;,
+    &quot;Host&quot;: &quot;node1&quot;,
+    &quot;Role&quot;: &quot;Leader&quot;,
+    &quot;State&quot;: &quot;running&quot;,
+    &quot;TL&quot;: 2
+  },
+  {
+    &quot;Cluster&quot;: &quot;weatherhw03&quot;,
+    &quot;Member&quot;: &quot;node2&quot;,
+    &quot;Host&quot;: &quot;node2&quot;,
+    &quot;Role&quot;: &quot;Replica&quot;,
+    &quot;State&quot;: &quot;streaming&quot;,
+    &quot;TL&quot;: 2,
+    &quot;Lag in MB&quot;: 0
+  }
+]
+node1: f|off|127.0.0.1|0/71C5620
+node2: t|on|127.0.0.1|0/71CE768
+haproxy:5000: f|off|172.23.0.3
+PASS old_leader=node2; new_leader=node1; new_replica=node2
+</pre></section><section><h2>patroni_markers_after.txt</h2><pre>After switchover: old and new markers on BOTH nodes
+node1
+after-e3f4e532b3b84555a17194a0a2308232|via haproxy:5000 after switchover|f
+before-9ba6bff8ef504a85a1075efa31c94caa|via haproxy:5000 before switchover|f
+node2
+after-e3f4e532b3b84555a17194a0a2308232|via haproxy:5000 after switchover|t
+before-9ba6bff8ef504a85a1075efa31c94caa|via haproxy:5000 before switchover|t
+</pre></section><section><h2>patroni_replica_write.txt</h2><pre>ERROR:  cannot execute INSERT in a read-only transaction
+PASS exit_code=1; rejected marker absent on both nodes
+</pre></section></html>

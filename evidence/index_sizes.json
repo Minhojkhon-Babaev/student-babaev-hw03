@@ -1,0 +1,10 @@
+[
+  {
+    "relname": "weather_daily_date_city_cover_idx",
+    "bytes": 6455296
+  },
+  {
+    "relname": "weather_daily_pkey",
+    "bytes": 3661824
+  }
+]

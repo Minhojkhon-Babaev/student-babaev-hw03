@@ -1,0 +1,62 @@
+[
+  {
+    "relname": "weather_daily",
+    "table_bytes": 14327808,
+    "index_bytes": 10117120
+  },
+  {
+    "relname": "weather_daily_p2015",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2016",
+    "table_bytes": 1441792,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2017",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2018",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2019",
+    "table_bytes": 1433600,
+    "index_bytes": 1220608
+  },
+  {
+    "relname": "weather_daily_p2020",
+    "table_bytes": 1441792,
+    "index_bytes": 1220608
+  },
+  {
+    "relname": "weather_daily_p2021",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2022",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2023",
+    "table_bytes": 1433600,
+    "index_bytes": 1228800
+  },
+  {
+    "relname": "weather_daily_p2024",
+    "table_bytes": 1441792,
+    "index_bytes": 1245184
+  },
+  {
+    "relname": "weather_daily_part",
+    "table_bytes": 0,
+    "index_bytes": 0
+  }
+]

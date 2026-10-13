@@ -1,0 +1,74 @@
+part_wide
+metric: server Execution Time, ms; warmup discarded
+repeats_ms: [17.799, 15.495, 14.22, 13.814, 14.848]
+median_ms: 14.848
+rows_returned: 30
+
+SET
+SET
+SET
+SET
+ city_id | mean_amplitude_c | city_days 
+---------+------------------+-----------
+ moscow  |            11.96 |      1827
+ sochi   |             6.01 |      1827
+ syn_01  |             9.00 |      1827
+ syn_02  |            10.02 |      1827
+ syn_03  |            11.01 |      1827
+ syn_04  |            11.99 |      1827
+ syn_05  |            12.97 |      1827
+ syn_06  |            13.93 |      1827
+ syn_07  |             8.07 |      1827
+ syn_08  |             8.98 |      1827
+ syn_09  |            10.05 |      1827
+ syn_10  |            11.08 |      1827
+ syn_11  |            12.03 |      1827
+ syn_12  |            13.02 |      1827
+ syn_13  |            13.96 |      1827
+ syn_14  |             7.98 |      1827
+ syn_15  |             9.00 |      1827
+ syn_16  |            10.01 |      1827
+ syn_17  |            11.00 |      1827
+ syn_18  |            12.08 |      1827
+ syn_19  |            12.95 |      1827
+ syn_20  |            14.03 |      1827
+ syn_21  |             7.99 |      1827
+ syn_22  |             8.98 |      1827
+ syn_23  |             9.94 |      1827
+ syn_24  |            11.07 |      1827
+ syn_25  |            11.91 |      1827
+ syn_26  |            13.00 |      1827
+ syn_27  |            14.02 |      1827
+ yakutsk |            18.00 |      1827
+(30 rows)
+
+
+Sort  (cost=2385.46..2385.54 rows=30 width=47) (actual time=13.905..13.908 rows=30 loops=1)
+  Sort Key: weather_daily_part.city_id
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=880
+  ->  HashAggregate  (cost=2384.28..2384.72 rows=30 width=47) (actual time=13.877..13.885 rows=30 loops=1)
+        Group Key: weather_daily_part.city_id
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=877
+        ->  Append  (cost=0.00..1973.20 rows=54810 width=13) (actual time=0.004..8.354 rows=54810 loops=1)
+              Buffers: shared hit=877
+              ->  Seq Scan on weather_daily_p2020 weather_daily_part_1  (cost=0.00..340.70 rows=10980 width=13) (actual time=0.003..1.285 rows=10980 loops=1)
+                    Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+                    Buffers: shared hit=176
+              ->  Seq Scan on weather_daily_p2021 weather_daily_part_2  (cost=0.00..339.25 rows=10950 width=13) (actual time=0.004..1.196 rows=10950 loops=1)
+                    Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+                    Buffers: shared hit=175
+              ->  Seq Scan on weather_daily_p2022 weather_daily_part_3  (cost=0.00..339.25 rows=10950 width=13) (actual time=0.003..1.198 rows=10950 loops=1)
+                    Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+                    Buffers: shared hit=175
+              ->  Seq Scan on weather_daily_p2023 weather_daily_part_4  (cost=0.00..339.25 rows=10950 width=13) (actual time=0.006..1.188 rows=10950 loops=1)
+                    Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+                    Buffers: shared hit=175
+              ->  Seq Scan on weather_daily_p2024 weather_daily_part_5  (cost=0.00..340.70 rows=10980 width=13) (actual time=0.005..1.228 rows=10980 loops=1)
+                    Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+                    Buffers: shared hit=176
+Planning:
+  Buffers: shared hit=601
+Planning Time: 0.818 ms
+Execution Time: 13.947 ms

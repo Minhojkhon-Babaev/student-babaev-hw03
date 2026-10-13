@@ -1,0 +1,24 @@
+Marker replicated before switchover
+[
+  {
+    "Cluster": "weatherhw03",
+    "Member": "node1",
+    "Host": "node1",
+    "Role": "Replica",
+    "State": "streaming",
+    "TL": 1,
+    "Lag in MB": 0
+  },
+  {
+    "Cluster": "weatherhw03",
+    "Member": "node2",
+    "Host": "node2",
+    "Role": "Leader",
+    "State": "running",
+    "TL": 1
+  }
+]
+node1: t|on|127.0.0.1|0/71C5460
+node2: f|off|127.0.0.1|
+haproxy:5000: f|off|172.23.0.4
+before-9ba6bff8ef504a85a1075efa31c94caa|via haproxy:5000 before switchover|t

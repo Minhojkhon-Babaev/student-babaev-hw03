@@ -1,0 +1,724 @@
+{
+  "label": "heap_wide",
+  "sql": "-- Широкий отчёт: все 30 городов за пять лет, включая явно синтетические.\n-- Сравнение средней суточной амплитуды; синтетика не климатическое наблюдение.\nSELECT city_id,\n       round(avg(amplitude_c), 2) AS mean_amplitude_c,\n       count(*) AS city_days\nFROM published.weather_daily\nWHERE observed_date >= DATE '2020-01-01'\n  AND observed_date <  DATE '2025-01-01'\nGROUP BY city_id\nORDER BY city_id;\n",
+  "settings": "\nSET timezone = 'UTC';\nSET max_parallel_workers_per_gather = 0;\nSET work_mem = '16MB';\nSET jit = off;\n",
+  "warmup_ms_discarded": 15.287,
+  "repeats_ms": [
+    15.893,
+    13.967,
+    14.958,
+    19.822,
+    13.214
+  ],
+  "median_ms": 14.958,
+  "rows_returned": 30,
+  "result": [
+    {
+      "city_id": "moscow",
+      "mean_amplitude_c": 11.96,
+      "city_days": 1827
+    },
+    {
+      "city_id": "sochi",
+      "mean_amplitude_c": 6.01,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_01",
+      "mean_amplitude_c": 9.0,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_02",
+      "mean_amplitude_c": 10.02,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_03",
+      "mean_amplitude_c": 11.01,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_04",
+      "mean_amplitude_c": 11.99,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_05",
+      "mean_amplitude_c": 12.97,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_06",
+      "mean_amplitude_c": 13.93,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_07",
+      "mean_amplitude_c": 8.07,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_08",
+      "mean_amplitude_c": 8.98,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_09",
+      "mean_amplitude_c": 10.05,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_10",
+      "mean_amplitude_c": 11.08,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_11",
+      "mean_amplitude_c": 12.03,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_12",
+      "mean_amplitude_c": 13.02,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_13",
+      "mean_amplitude_c": 13.96,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_14",
+      "mean_amplitude_c": 7.98,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_15",
+      "mean_amplitude_c": 9.0,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_16",
+      "mean_amplitude_c": 10.01,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_17",
+      "mean_amplitude_c": 11.0,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_18",
+      "mean_amplitude_c": 12.08,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_19",
+      "mean_amplitude_c": 12.95,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_20",
+      "mean_amplitude_c": 14.03,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_21",
+      "mean_amplitude_c": 7.99,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_22",
+      "mean_amplitude_c": 8.98,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_23",
+      "mean_amplitude_c": 9.94,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_24",
+      "mean_amplitude_c": 11.07,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_25",
+      "mean_amplitude_c": 11.91,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_26",
+      "mean_amplitude_c": 13.0,
+      "city_days": 1827
+    },
+    {
+      "city_id": "syn_27",
+      "mean_amplitude_c": 14.02,
+      "city_days": 1827
+    },
+    {
+      "city_id": "yakutsk",
+      "mean_amplitude_c": 18.0,
+      "city_days": 1827
+    }
+  ],
+  "plans": [
+    {
+      "Plan": {
+        "Node Type": "Sort",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3804.07,
+        "Total Cost": 3804.14,
+        "Plan Rows": 30,
+        "Plan Width": 46,
+        "Actual Startup Time": 15.836,
+        "Actual Total Time": 15.839,
+        "Actual Rows": 30,
+        "Actual Loops": 1,
+        "Sort Key": [
+          "city_id"
+        ],
+        "Sort Method": "quicksort",
+        "Sort Space Used": 26,
+        "Sort Space Type": "Memory",
+        "Shared Hit Blocks": 1752,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Aggregate",
+            "Strategy": "Hashed",
+            "Partial Mode": "Simple",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3802.88,
+            "Total Cost": 3803.33,
+            "Plan Rows": 30,
+            "Plan Width": 46,
+            "Actual Startup Time": 15.791,
+            "Actual Total Time": 15.8,
+            "Actual Rows": 30,
+            "Actual Loops": 1,
+            "Group Key": [
+              "city_id"
+            ],
+            "Planned Partitions": 0,
+            "HashAgg Batches": 1,
+            "Peak Memory Usage": 32,
+            "Disk Usage": 0,
+            "Shared Hit Blocks": 1749,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "weather_daily",
+                "Alias": "weather_daily",
+                "Startup Cost": 0.0,
+                "Total Cost": 3392.85,
+                "Plan Rows": 54671,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.004,
+                "Actual Total Time": 8.134,
+                "Actual Rows": 54810,
+                "Actual Loops": 1,
+                "Filter": "((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))",
+                "Rows Removed by Filter": 54780,
+                "Shared Hit Blocks": 1749,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 108,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.194,
+      "Triggers": [],
+      "Execution Time": 15.893
+    },
+    {
+      "Plan": {
+        "Node Type": "Sort",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3804.07,
+        "Total Cost": 3804.14,
+        "Plan Rows": 30,
+        "Plan Width": 46,
+        "Actual Startup Time": 13.927,
+        "Actual Total Time": 13.928,
+        "Actual Rows": 30,
+        "Actual Loops": 1,
+        "Sort Key": [
+          "city_id"
+        ],
+        "Sort Method": "quicksort",
+        "Sort Space Used": 26,
+        "Sort Space Type": "Memory",
+        "Shared Hit Blocks": 1752,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Aggregate",
+            "Strategy": "Hashed",
+            "Partial Mode": "Simple",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3802.88,
+            "Total Cost": 3803.33,
+            "Plan Rows": 30,
+            "Plan Width": 46,
+            "Actual Startup Time": 13.901,
+            "Actual Total Time": 13.907,
+            "Actual Rows": 30,
+            "Actual Loops": 1,
+            "Group Key": [
+              "city_id"
+            ],
+            "Planned Partitions": 0,
+            "HashAgg Batches": 1,
+            "Peak Memory Usage": 32,
+            "Disk Usage": 0,
+            "Shared Hit Blocks": 1749,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "weather_daily",
+                "Alias": "weather_daily",
+                "Startup Cost": 0.0,
+                "Total Cost": 3392.85,
+                "Plan Rows": 54671,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.004,
+                "Actual Total Time": 7.191,
+                "Actual Rows": 54810,
+                "Actual Loops": 1,
+                "Filter": "((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))",
+                "Rows Removed by Filter": 54780,
+                "Shared Hit Blocks": 1749,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 108,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.176,
+      "Triggers": [],
+      "Execution Time": 13.967
+    },
+    {
+      "Plan": {
+        "Node Type": "Sort",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3804.07,
+        "Total Cost": 3804.14,
+        "Plan Rows": 30,
+        "Plan Width": 46,
+        "Actual Startup Time": 14.809,
+        "Actual Total Time": 14.81,
+        "Actual Rows": 30,
+        "Actual Loops": 1,
+        "Sort Key": [
+          "city_id"
+        ],
+        "Sort Method": "quicksort",
+        "Sort Space Used": 26,
+        "Sort Space Type": "Memory",
+        "Shared Hit Blocks": 1752,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Aggregate",
+            "Strategy": "Hashed",
+            "Partial Mode": "Simple",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3802.88,
+            "Total Cost": 3803.33,
+            "Plan Rows": 30,
+            "Plan Width": 46,
+            "Actual Startup Time": 14.759,
+            "Actual Total Time": 14.768,
+            "Actual Rows": 30,
+            "Actual Loops": 1,
+            "Group Key": [
+              "city_id"
+            ],
+            "Planned Partitions": 0,
+            "HashAgg Batches": 1,
+            "Peak Memory Usage": 32,
+            "Disk Usage": 0,
+            "Shared Hit Blocks": 1749,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "weather_daily",
+                "Alias": "weather_daily",
+                "Startup Cost": 0.0,
+                "Total Cost": 3392.85,
+                "Plan Rows": 54671,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.009,
+                "Actual Total Time": 8.053,
+                "Actual Rows": 54810,
+                "Actual Loops": 1,
+                "Filter": "((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))",
+                "Rows Removed by Filter": 54780,
+                "Shared Hit Blocks": 1749,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 108,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 1.002,
+      "Triggers": [],
+      "Execution Time": 14.958
+    },
+    {
+      "Plan": {
+        "Node Type": "Sort",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3804.07,
+        "Total Cost": 3804.14,
+        "Plan Rows": 30,
+        "Plan Width": 46,
+        "Actual Startup Time": 19.734,
+        "Actual Total Time": 19.735,
+        "Actual Rows": 30,
+        "Actual Loops": 1,
+        "Sort Key": [
+          "city_id"
+        ],
+        "Sort Method": "quicksort",
+        "Sort Space Used": 26,
+        "Sort Space Type": "Memory",
+        "Shared Hit Blocks": 1752,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Aggregate",
+            "Strategy": "Hashed",
+            "Partial Mode": "Simple",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3802.88,
+            "Total Cost": 3803.33,
+            "Plan Rows": 30,
+            "Plan Width": 46,
+            "Actual Startup Time": 19.687,
+            "Actual Total Time": 19.694,
+            "Actual Rows": 30,
+            "Actual Loops": 1,
+            "Group Key": [
+              "city_id"
+            ],
+            "Planned Partitions": 0,
+            "HashAgg Batches": 1,
+            "Peak Memory Usage": 32,
+            "Disk Usage": 0,
+            "Shared Hit Blocks": 1749,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "weather_daily",
+                "Alias": "weather_daily",
+                "Startup Cost": 0.0,
+                "Total Cost": 3392.85,
+                "Plan Rows": 54671,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.006,
+                "Actual Total Time": 11.228,
+                "Actual Rows": 54810,
+                "Actual Loops": 1,
+                "Filter": "((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))",
+                "Rows Removed by Filter": 54780,
+                "Shared Hit Blocks": 1749,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 108,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.421,
+      "Triggers": [],
+      "Execution Time": 19.822
+    },
+    {
+      "Plan": {
+        "Node Type": "Sort",
+        "Parallel Aware": false,
+        "Async Capable": false,
+        "Startup Cost": 3804.07,
+        "Total Cost": 3804.14,
+        "Plan Rows": 30,
+        "Plan Width": 46,
+        "Actual Startup Time": 13.165,
+        "Actual Total Time": 13.166,
+        "Actual Rows": 30,
+        "Actual Loops": 1,
+        "Sort Key": [
+          "city_id"
+        ],
+        "Sort Method": "quicksort",
+        "Sort Space Used": 26,
+        "Sort Space Type": "Memory",
+        "Shared Hit Blocks": 1752,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0,
+        "Plans": [
+          {
+            "Node Type": "Aggregate",
+            "Strategy": "Hashed",
+            "Partial Mode": "Simple",
+            "Parent Relationship": "Outer",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 3802.88,
+            "Total Cost": 3803.33,
+            "Plan Rows": 30,
+            "Plan Width": 46,
+            "Actual Startup Time": 13.133,
+            "Actual Total Time": 13.14,
+            "Actual Rows": 30,
+            "Actual Loops": 1,
+            "Group Key": [
+              "city_id"
+            ],
+            "Planned Partitions": 0,
+            "HashAgg Batches": 1,
+            "Peak Memory Usage": 32,
+            "Disk Usage": 0,
+            "Shared Hit Blocks": 1749,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Seq Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Relation Name": "weather_daily",
+                "Alias": "weather_daily",
+                "Startup Cost": 0.0,
+                "Total Cost": 3392.85,
+                "Plan Rows": 54671,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.004,
+                "Actual Total Time": 6.676,
+                "Actual Rows": 54810,
+                "Actual Loops": 1,
+                "Filter": "((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))",
+                "Rows Removed by Filter": 54780,
+                "Shared Hit Blocks": 1749,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Planning": {
+        "Shared Hit Blocks": 108,
+        "Shared Read Blocks": 0,
+        "Shared Dirtied Blocks": 0,
+        "Shared Written Blocks": 0,
+        "Local Hit Blocks": 0,
+        "Local Read Blocks": 0,
+        "Local Dirtied Blocks": 0,
+        "Local Written Blocks": 0,
+        "Temp Read Blocks": 0,
+        "Temp Written Blocks": 0
+      },
+      "Planning Time": 0.205,
+      "Triggers": [],
+      "Execution Time": 13.214
+    }
+  ]
+}

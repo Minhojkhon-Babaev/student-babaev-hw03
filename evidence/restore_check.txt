@@ -1,0 +1,46 @@
+pg_dump version: pg_dump (PostgreSQL) 16.4 (Debian 16.4-1.pgdg120+2)
+format: custom (-Fc)
+dump command: docker compose exec -T node1 env PGPASSWORD=postgres pg_dump -h haproxy -p 5000 -U postgres -d warehouse -Fc -f /tmp/warehouse_20261013T142945Z.dump
+restore command: docker compose exec -T node1 env PGPASSWORD=postgres pg_restore -h haproxy -p 5000 -U postgres -d warehouse_restored_20261013t142945z --no-owner --exit-on-error /tmp/warehouse_20261013T142945Z.dump
+dump file: warehouse_20261013T142945Z.dump; bytes=3299177
+restored database: warehouse_restored_20261013t142945z
+PASS pg_restore exit_code=0
+PASS catalog schemas: 2 objects equal
+PASS catalog tables: 14 objects equal
+PASS catalog columns: 137 objects equal
+PASS catalog indexes: 26 objects equal
+PASS catalog constraints: 62 objects equal
+PASS exact rows demo.mvcc_value: n=1 sha256=3d558b71ce32a3cb92e56d52fb574e5b6487dfc2f6955377c0c169d07ed62a06
+PASS exact rows published.repl_marker: n=2 sha256=d3dcc83701844525d8673a03e2b5a35d3e7f1ae0616e56e1b7e8ba22ba786c8c
+PASS exact rows published.weather_daily: n=109590 sha256=e3f2c8af6087b019d4cea8a39155c6c24b48d27a58f71409d5f2f72687b26150
+PASS exact rows published.weather_daily_p2015: n=10950 sha256=fcc85f16fc00406740187973a5766915d51bde473af627358958bb01351662ef
+PASS exact rows published.weather_daily_p2016: n=10980 sha256=cee95085c8b851b9980d6f0234b83bfef89dffa2ebf0f0137952952454be157b
+PASS exact rows published.weather_daily_p2017: n=10950 sha256=7ce3309eb3e2e2bc5a4001e2c4ff31d7d8945c3f5dc2bcdb943d55c1828df6a2
+PASS exact rows published.weather_daily_p2018: n=10950 sha256=fa5331dc0291030f4bbd5b9430b998e06827aaf40d1effbc08ab29d5378c65e5
+PASS exact rows published.weather_daily_p2019: n=10950 sha256=e2890325650cc7850bccf72fb434182742e04999eb71126b983dd439965991f0
+PASS exact rows published.weather_daily_p2020: n=10980 sha256=48c89b555bc1963160439cb0f5957e69fe3e086865cde9e83ff5a4215c1ea2b4
+PASS exact rows published.weather_daily_p2021: n=10950 sha256=b501f26ce54438d4a6b1d904d8b2dad28c8cbf87622e5e5d38f14b1d9765bcf4
+PASS exact rows published.weather_daily_p2022: n=10950 sha256=089fbeafc56cb07300915f4018334e9cc8da518ccf3ca1fca0d18dc5c3a9c13e
+PASS exact rows published.weather_daily_p2023: n=10950 sha256=fa31f5fee0ce2000ed86524336a4bdf3097f6c8272ee4c94e85a47b79df3d5d5
+PASS exact rows published.weather_daily_p2024: n=10980 sha256=18f260d13ff4226b75f57c89005ee50c5bc42ff178c719a93e549dcf06f5f013
+PASS exact rows published.weather_daily_part: n=109590 sha256=e3f2c8af6087b019d4cea8a39155c6c24b48d27a58f71409d5f2f72687b26150
+PASS keys weather_daily: 109590 rows; null=0; duplicate=0; real=9
+PASS keys weather_daily_part: 109590 rows; null=0; duplicate=0; real=9
+PASS restored narrow: all keys and measures equal (9 rows)
+PASS restored narrow_part: all keys and measures equal (9 rows)
+PASS restored wide: all keys and measures equal (30 rows)
+PASS restored wide_part: all keys and measures equal (30 rows)
+PASS warehouse_restored_20261013t142945z: 216 hourly rows -> 9 city-days; all columns equal
+{'city_id': 'moscow', 'city_name': 'Москва', 'federal_district': 'Центральный', 'observed_date': '2024-06-01', 'n_hours': 24, 'avg_temp_c': 23.529, 'min_temp_c': 14.8, 'max_temp_c': 29.7, 'amplitude_c': 14.9, 'precip_sum_mm': 0.0, 'is_synthetic': False}
+{'city_id': 'moscow', 'city_name': 'Москва', 'federal_district': 'Центральный', 'observed_date': '2024-06-02', 'n_hours': 24, 'avg_temp_c': 21.742, 'min_temp_c': 14.7, 'max_temp_c': 27.5, 'amplitude_c': 12.8, 'precip_sum_mm': 1.6, 'is_synthetic': False}
+{'city_id': 'moscow', 'city_name': 'Москва', 'federal_district': 'Центральный', 'observed_date': '2024-06-03', 'n_hours': 24, 'avg_temp_c': 20.346, 'min_temp_c': 15.6, 'max_temp_c': 24.6, 'amplitude_c': 9.0, 'precip_sum_mm': 2.5, 'is_synthetic': False}
+{'city_id': 'sochi', 'city_name': 'Сочи', 'federal_district': 'Южный', 'observed_date': '2024-06-01', 'n_hours': 24, 'avg_temp_c': 19.729, 'min_temp_c': 17.8, 'max_temp_c': 21.3, 'amplitude_c': 3.5, 'precip_sum_mm': 1.1, 'is_synthetic': False}
+{'city_id': 'sochi', 'city_name': 'Сочи', 'federal_district': 'Южный', 'observed_date': '2024-06-02', 'n_hours': 24, 'avg_temp_c': 19.958, 'min_temp_c': 16.8, 'max_temp_c': 22.6, 'amplitude_c': 5.8, 'precip_sum_mm': 0.4, 'is_synthetic': False}
+{'city_id': 'sochi', 'city_name': 'Сочи', 'federal_district': 'Южный', 'observed_date': '2024-06-03', 'n_hours': 24, 'avg_temp_c': 21.617, 'min_temp_c': 16.7, 'max_temp_c': 24.7, 'amplitude_c': 8.0, 'precip_sum_mm': 0.0, 'is_synthetic': False}
+{'city_id': 'yakutsk', 'city_name': 'Якутск', 'federal_district': 'Дальневосточный', 'observed_date': '2024-06-01', 'n_hours': 24, 'avg_temp_c': 20.221, 'min_temp_c': 11.3, 'max_temp_c': 27.8, 'amplitude_c': 16.5, 'precip_sum_mm': 0.0, 'is_synthetic': False}
+{'city_id': 'yakutsk', 'city_name': 'Якутск', 'federal_district': 'Дальневосточный', 'observed_date': '2024-06-02', 'n_hours': 24, 'avg_temp_c': 16.125, 'min_temp_c': 8.0, 'max_temp_c': 22.2, 'amplitude_c': 14.2, 'precip_sum_mm': 0.0, 'is_synthetic': False}
+{'city_id': 'yakutsk', 'city_name': 'Якутск', 'federal_district': 'Дальневосточный', 'observed_date': '2024-06-03', 'n_hours': 24, 'avg_temp_c': 17.558, 'min_temp_c': 8.6, 'max_temp_c': 24.5, 'amplitude_c': 15.9, 'precip_sum_mm': 0.0, 'is_synthetic': False}
+moscow: mean amplitude = 12.233 C
+sochi: mean amplitude = 5.767 C
+yakutsk: mean amplitude = 15.533 C
+Independent maximum: yakutsk 2024-06-01 16.5 C

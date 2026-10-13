@@ -1,0 +1,1 @@
+PASS both analytic results equal baseline after switchover; replica has 109590 mart rows

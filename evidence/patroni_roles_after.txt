@@ -1,0 +1,24 @@
+After switchover
+[
+  {
+    "Cluster": "weatherhw03",
+    "Member": "node1",
+    "Host": "node1",
+    "Role": "Leader",
+    "State": "running",
+    "TL": 2
+  },
+  {
+    "Cluster": "weatherhw03",
+    "Member": "node2",
+    "Host": "node2",
+    "Role": "Replica",
+    "State": "streaming",
+    "TL": 2,
+    "Lag in MB": 0
+  }
+]
+node1: f|off|127.0.0.1|0/71C5620
+node2: t|on|127.0.0.1|0/71CE768
+haproxy:5000: f|off|172.23.0.3
+PASS old_leader=node2; new_leader=node1; new_replica=node2

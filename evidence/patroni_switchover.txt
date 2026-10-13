@@ -1,0 +1,14 @@
+Current cluster topology
++ Cluster: weatherhw03 (7696159390075219993) -----------+
+| Member | Host  | Role    | State     | TL | Lag in MB |
++--------+-------+---------+-----------+----+-----------+
+| node1  | node1 | Replica | streaming |  1 |         0 |
+| node2  | node2 | Leader  | running   |  1 |           |
++--------+-------+---------+-----------+----+-----------+
+2026-10-13 14:29:29.15764 Successfully switched over to "node1"
++ Cluster: weatherhw03 (7696159390075219993) ---------+
+| Member | Host  | Role    | State   | TL | Lag in MB |
++--------+-------+---------+---------+----+-----------+
+| node1  | node1 | Leader  | running |  1 |           |
+| node2  | node2 | Replica | stopped |    |   unknown |
++--------+-------+---------+---------+----+-----------+

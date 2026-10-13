@@ -1,0 +1,7 @@
+After switchover: old and new markers on BOTH nodes
+node1
+after-e3f4e532b3b84555a17194a0a2308232|via haproxy:5000 after switchover|f
+before-9ba6bff8ef504a85a1075efa31c94caa|via haproxy:5000 before switchover|f
+node2
+after-e3f4e532b3b84555a17194a0a2308232|via haproxy:5000 after switchover|t
+before-9ba6bff8ef504a85a1075efa31c94caa|via haproxy:5000 before switchover|t

@@ -1,0 +1,2 @@
+ERROR:  cannot execute INSERT in a read-only transaction
+PASS exit_code=1; rejected marker absent on both nodes

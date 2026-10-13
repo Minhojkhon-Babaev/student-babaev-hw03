@@ -1,0 +1,61 @@
+heap_wide
+metric: server Execution Time, ms; warmup discarded
+repeats_ms: [15.893, 13.967, 14.958, 19.822, 13.214]
+median_ms: 14.958
+rows_returned: 30
+
+SET
+SET
+SET
+SET
+ city_id | mean_amplitude_c | city_days 
+---------+------------------+-----------
+ moscow  |            11.96 |      1827
+ sochi   |             6.01 |      1827
+ syn_01  |             9.00 |      1827
+ syn_02  |            10.02 |      1827
+ syn_03  |            11.01 |      1827
+ syn_04  |            11.99 |      1827
+ syn_05  |            12.97 |      1827
+ syn_06  |            13.93 |      1827
+ syn_07  |             8.07 |      1827
+ syn_08  |             8.98 |      1827
+ syn_09  |            10.05 |      1827
+ syn_10  |            11.08 |      1827
+ syn_11  |            12.03 |      1827
+ syn_12  |            13.02 |      1827
+ syn_13  |            13.96 |      1827
+ syn_14  |             7.98 |      1827
+ syn_15  |             9.00 |      1827
+ syn_16  |            10.01 |      1827
+ syn_17  |            11.00 |      1827
+ syn_18  |            12.08 |      1827
+ syn_19  |            12.95 |      1827
+ syn_20  |            14.03 |      1827
+ syn_21  |             7.99 |      1827
+ syn_22  |             8.98 |      1827
+ syn_23  |             9.94 |      1827
+ syn_24  |            11.07 |      1827
+ syn_25  |            11.91 |      1827
+ syn_26  |            13.00 |      1827
+ syn_27  |            14.02 |      1827
+ yakutsk |            18.00 |      1827
+(30 rows)
+
+
+Sort  (cost=3804.07..3804.14 rows=30 width=46) (actual time=13.393..13.394 rows=30 loops=1)
+  Sort Key: city_id
+  Sort Method: quicksort  Memory: 26kB
+  Buffers: shared hit=1752
+  ->  HashAggregate  (cost=3802.88..3803.33 rows=30 width=46) (actual time=13.359..13.366 rows=30 loops=1)
+        Group Key: city_id
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=1749
+        ->  Seq Scan on weather_daily  (cost=0.00..3392.85 rows=54671 width=12) (actual time=0.003..6.813 rows=54810 loops=1)
+              Filter: ((observed_date >= '2020-01-01'::date) AND (observed_date < '2025-01-01'::date))
+              Rows Removed by Filter: 54780
+              Buffers: shared hit=1749
+Planning:
+  Buffers: shared hit=108
+Planning Time: 0.174 ms
+Execution Time: 13.437 ms

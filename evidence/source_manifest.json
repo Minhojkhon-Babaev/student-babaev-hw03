@@ -1,0 +1,10 @@
+{
+  "weather.csv": {
+    "sha256": "2be26affcb98090594671ea3f86601ba40a2ae104e6b83f73716eee710f45f04",
+    "origin": "../student-babaev-hw02/data/control/weather.csv"
+  },
+  "city.csv": {
+    "sha256": "ee100c8ac71afdd884e08dee632305762529b3e31a35e8cc01979a46cb1090f7",
+    "origin": "../student-babaev-hw02/data/control/city.csv"
+  }
+}

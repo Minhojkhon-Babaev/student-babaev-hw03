@@ -1,63 +1,70 @@
-name: hse-dwh-hw02
+name: hse-pg-hw03-verified
 
 services:
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: warehouse
-      POSTGRES_PASSWORD: warehouse
-      POSTGRES_DB: warehouse
-    ports:
-      - "127.0.0.1:5433:5432"
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.16
+    command:
+      - etcd
+      - --name=etcd
+      - --data-dir=/etcd-data
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --advertise-client-urls=http://etcd:2379
+      - --listen-peer-urls=http://0.0.0.0:2380
+      - --initial-advertise-peer-urls=http://etcd:2380
+      - --initial-cluster=etcd=http://etcd:2380
+      - --initial-cluster-token=hw03
+      - --initial-cluster-state=new
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U warehouse -d warehouse"]
-      interval: 5s
-      timeout: 3s
-      retries: 20
+      - etcd_data:/etcd-data
     restart: "no"
 
-  airflow:
-    build: ./docker/airflow
-    depends_on:
-      postgres:
-        condition: service_healthy
+  node1:
+    build: ./docker/patroni
+    cpus: 1.0
+    mem_limit: 768m
+    hostname: node1
     environment:
-      AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://warehouse:warehouse@postgres:5432/airflow
-      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
-      AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: "1"
-      AIRFLOW__CORE__PARALLELISM: "4"
-      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
-      AIRFLOW__CORE__DAGS_FOLDER: /opt/project/airflow/dags
-      AIRFLOW_HOME: /opt/airflow
-      WAREHOUSE_HOST: postgres
-      WAREHOUSE_PORT: "5432"
-      WAREHOUSE_DB: warehouse
-      WAREHOUSE_USER: warehouse
-      WAREHOUSE_PASSWORD: warehouse
-      DBT_PROFILES_DIR: /opt/project/dbt
-      PROJECT_DIR: /opt/project
-      _AIRFLOW_WWW_USER_USERNAME: student
-      _AIRFLOW_WWW_USER_PASSWORD: student
+      PATRONI_NAME: node1
+      PATRONI_CONNECT_ADDRESS: node1:5432
+    depends_on:
+      - etcd
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:5435:5432"
+      - "127.0.0.1:8018:8008"
     volumes:
-      - ./:/opt/project
-    user: "0:0"
+      - node1_data:/var/lib/postgresql/data
     restart: "no"
-    command: >
-      bash -lc "
-        export PATH=/home/airflow/.local/bin:/usr/local/bin:$$PATH
-        airflow db init || true
-        airflow db migrate || true
-        airflow users create --username student --password student --firstname Student --lastname Babaev --role Admin --email student@local || true
-        airflow scheduler &
-        exec airflow webserver --port 8080
-      "
+
+  node2:
+    build: ./docker/patroni
+    cpus: 1.0
+    mem_limit: 768m
+    hostname: node2
+    environment:
+      PATRONI_NAME: node2
+      PATRONI_CONNECT_ADDRESS: node2:5432
+    depends_on:
+      - etcd
+    ports:
+      - "127.0.0.1:5436:5432"
+      - "127.0.0.1:8019:8008"
+    volumes:
+      - node2_data:/var/lib/postgresql/data
+    restart: "no"
+
+  haproxy:
+    image: haproxy:2.9.15-alpine
+    depends_on:
+      - node1
+      - node2
+    ports:
+      - "127.0.0.1:5000:5000"
+      - "127.0.0.1:5001:5001"
+    volumes:
+      - ./docker/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: "no"
 
 volumes:
-  postgres_data:
+  etcd_data:
+  node1_data:
+  node2_data:

@@ -1,0 +1,2412 @@
+{
+  "schemas": [
+    {
+      "nspname": "demo"
+    },
+    {
+      "nspname": "published"
+    }
+  ],
+  "tables": [
+    {
+      "nspname": "demo",
+      "relname": "mvcc_value",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": null
+    },
+    {
+      "nspname": "published",
+      "relname": "repl_marker",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": null
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": null
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2015-01-01') TO ('2016-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2016-01-01') TO ('2017-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2017-01-01') TO ('2018-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2018-01-01') TO ('2019-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2019-01-01') TO ('2020-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2020-01-01') TO ('2021-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2021-01-01') TO ('2022-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2022-01-01') TO ('2023-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2023-01-01') TO ('2024-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "relkind": "r",
+      "partition_key": null,
+      "partition_bound": "FOR VALUES FROM ('2024-01-01') TO ('2025-01-01')"
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "relkind": "p",
+      "partition_key": "RANGE (observed_date)",
+      "partition_bound": null
+    }
+  ],
+  "columns": [
+    {
+      "table_schema": "demo",
+      "table_name": "mvcc_value",
+      "column_name": "id",
+      "ordinal_position": 1,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "demo",
+      "table_name": "mvcc_value",
+      "column_name": "value",
+      "ordinal_position": 2,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "repl_marker",
+      "column_name": "id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "repl_marker",
+      "column_name": "note",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "repl_marker",
+      "column_name": "inserted_at",
+      "ordinal_position": 3,
+      "data_type": "timestamp with time zone",
+      "udt_name": "timestamptz",
+      "is_nullable": "NO",
+      "column_default": "now()",
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2015",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2016",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2017",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2018",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2019",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2020",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2021",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2022",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2023",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_p2024",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "city_id",
+      "ordinal_position": 1,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "city_name",
+      "ordinal_position": 2,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "federal_district",
+      "ordinal_position": 3,
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "observed_date",
+      "ordinal_position": 4,
+      "data_type": "date",
+      "udt_name": "date",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "n_hours",
+      "ordinal_position": 5,
+      "data_type": "integer",
+      "udt_name": "int4",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 32,
+      "numeric_scale": 0
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "avg_temp_c",
+      "ordinal_position": 6,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 3
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "min_temp_c",
+      "ordinal_position": 7,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "max_temp_c",
+      "ordinal_position": 8,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "amplitude_c",
+      "ordinal_position": 9,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 8,
+      "numeric_scale": 1
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "precip_sum_mm",
+      "ordinal_position": 10,
+      "data_type": "numeric",
+      "udt_name": "numeric",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": 10,
+      "numeric_scale": 2
+    },
+    {
+      "table_schema": "published",
+      "table_name": "weather_daily_part",
+      "column_name": "is_synthetic",
+      "ordinal_position": 11,
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": null,
+      "numeric_precision": null,
+      "numeric_scale": null
+    }
+  ],
+  "indexes": [
+    {
+      "schemaname": "demo",
+      "tablename": "mvcc_value",
+      "indexname": "mvcc_value_pkey",
+      "indexdef": "CREATE UNIQUE INDEX mvcc_value_pkey ON demo.mvcc_value USING btree (id)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "repl_marker",
+      "indexname": "repl_marker_pkey",
+      "indexdef": "CREATE UNIQUE INDEX repl_marker_pkey ON published.repl_marker USING btree (id)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily",
+      "indexname": "weather_daily_date_city_cover_idx",
+      "indexdef": "CREATE INDEX weather_daily_date_city_cover_idx ON published.weather_daily USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily",
+      "indexname": "weather_daily_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_pkey ON published.weather_daily USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2015",
+      "indexname": "weather_daily_p2015_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2015_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2015 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2015",
+      "indexname": "weather_daily_p2015_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2015_pkey ON published.weather_daily_p2015 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2016",
+      "indexname": "weather_daily_p2016_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2016_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2016 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2016",
+      "indexname": "weather_daily_p2016_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2016_pkey ON published.weather_daily_p2016 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2017",
+      "indexname": "weather_daily_p2017_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2017_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2017 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2017",
+      "indexname": "weather_daily_p2017_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2017_pkey ON published.weather_daily_p2017 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2018",
+      "indexname": "weather_daily_p2018_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2018_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2018 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2018",
+      "indexname": "weather_daily_p2018_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2018_pkey ON published.weather_daily_p2018 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2019",
+      "indexname": "weather_daily_p2019_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2019_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2019 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2019",
+      "indexname": "weather_daily_p2019_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2019_pkey ON published.weather_daily_p2019 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2020",
+      "indexname": "weather_daily_p2020_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2020_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2020 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2020",
+      "indexname": "weather_daily_p2020_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2020_pkey ON published.weather_daily_p2020 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2021",
+      "indexname": "weather_daily_p2021_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2021_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2021 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2021",
+      "indexname": "weather_daily_p2021_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2021_pkey ON published.weather_daily_p2021 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2022",
+      "indexname": "weather_daily_p2022_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2022_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2022 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2022",
+      "indexname": "weather_daily_p2022_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2022_pkey ON published.weather_daily_p2022 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2023",
+      "indexname": "weather_daily_p2023_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2023_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2023 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2023",
+      "indexname": "weather_daily_p2023_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2023_pkey ON published.weather_daily_p2023 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2024",
+      "indexname": "weather_daily_p2024_observed_date_city_id_amplitude_c_min_t_idx",
+      "indexdef": "CREATE INDEX weather_daily_p2024_observed_date_city_id_amplitude_c_min_t_idx ON published.weather_daily_p2024 USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_p2024",
+      "indexname": "weather_daily_p2024_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_p2024_pkey ON published.weather_daily_p2024 USING btree (city_id, observed_date)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_part",
+      "indexname": "weather_daily_part_date_city_cover_idx",
+      "indexdef": "CREATE INDEX weather_daily_part_date_city_cover_idx ON ONLY published.weather_daily_part USING btree (observed_date, city_id) INCLUDE (amplitude_c, min_temp_c, max_temp_c, avg_temp_c)"
+    },
+    {
+      "schemaname": "published",
+      "tablename": "weather_daily_part",
+      "indexname": "weather_daily_part_pkey",
+      "indexdef": "CREATE UNIQUE INDEX weather_daily_part_pkey ON ONLY published.weather_daily_part USING btree (city_id, observed_date)"
+    }
+  ],
+  "constraints": [
+    {
+      "nspname": "demo",
+      "relname": "mvcc_value",
+      "conname": "mvcc_value_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "repl_marker",
+      "conname": "repl_marker_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (id)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "conname": "weather_daily_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "conname": "weather_daily_p2015_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2015",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "conname": "weather_daily_p2016_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2016",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "conname": "weather_daily_p2017_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2017",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "conname": "weather_daily_p2018_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2018",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "conname": "weather_daily_p2019_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2019",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "conname": "weather_daily_p2020_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2020",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "conname": "weather_daily_p2021_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2021",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "conname": "weather_daily_p2022_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2022",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "conname": "weather_daily_p2023_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2023",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "conname": "weather_daily_p2024_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_p2024",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "conname": "weather_daily_check",
+      "contype": "c",
+      "definition": "CHECK (((min_temp_c <= avg_temp_c) AND (avg_temp_c <= max_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "conname": "weather_daily_check1",
+      "contype": "c",
+      "definition": "CHECK ((amplitude_c = (max_temp_c - min_temp_c)))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "conname": "weather_daily_n_hours_check",
+      "contype": "c",
+      "definition": "CHECK ((n_hours = 24))",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "conname": "weather_daily_part_pkey",
+      "contype": "p",
+      "definition": "PRIMARY KEY (city_id, observed_date)",
+      "convalidated": true
+    },
+    {
+      "nspname": "published",
+      "relname": "weather_daily_part",
+      "conname": "weather_daily_precip_sum_mm_check",
+      "contype": "c",
+      "definition": "CHECK ((precip_sum_mm >= (0)::numeric))",
+      "convalidated": true
+    }
+  ]
+}

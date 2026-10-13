@@ -1,0 +1,6 @@
+{
+  "synthetic_generation_client_s": 0.9653467088937759,
+  "load_vacuum_client_s": 1.255457750055939,
+  "index_build_vacuum_client_s": 0.23168866685591638,
+  "partition_create_copy_vacuum_client_s": 1.146603416884318
+}

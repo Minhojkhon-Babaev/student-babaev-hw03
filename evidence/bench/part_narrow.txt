@@ -1,0 +1,36 @@
+part_narrow
+metric: server Execution Time, ms; warmup discarded
+repeats_ms: [0.092, 0.162, 0.067, 0.065, 0.069]
+median_ms: 0.069
+rows_returned: 9
+
+SET
+SET
+SET
+SET
+ city_id | observed_date | amplitude_c | min_temp_c | max_temp_c | avg_temp_c 
+---------+---------------+-------------+------------+------------+------------
+ yakutsk | 2024-06-01    |        16.5 |       11.3 |       27.8 |     20.221
+ yakutsk | 2024-06-03    |        15.9 |        8.6 |       24.5 |     17.558
+ moscow  | 2024-06-01    |        14.9 |       14.8 |       29.7 |     23.529
+ yakutsk | 2024-06-02    |        14.2 |        8.0 |       22.2 |     16.125
+ moscow  | 2024-06-02    |        12.8 |       14.7 |       27.5 |     21.742
+ moscow  | 2024-06-03    |         9.0 |       15.6 |       24.6 |     20.346
+ sochi   | 2024-06-03    |         8.0 |       16.7 |       24.7 |     21.617
+ sochi   | 2024-06-02    |         5.8 |       16.8 |       22.6 |     19.958
+ sochi   | 2024-06-01    |         3.5 |       17.8 |       21.3 |     19.729
+(9 rows)
+
+
+Sort  (cost=38.69..38.71 rows=11 width=35) (actual time=0.064..0.065 rows=9 loops=1)
+  Sort Key: weather_daily_part.amplitude_c DESC, weather_daily_part.city_id, weather_daily_part.observed_date
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=23
+  ->  Index Only Scan using weather_daily_p2024_observed_date_city_id_amplitude_c_min_t_idx on weather_daily_p2024 weather_daily_part  (cost=0.29..38.50 rows=11 width=35) (actual time=0.037..0.048 rows=9 loops=1)
+        Index Cond: ((observed_date >= '2024-06-01'::date) AND (observed_date < '2024-06-04'::date) AND (city_id = ANY ('{moscow,sochi,yakutsk}'::text[])))
+        Heap Fetches: 9
+        Buffers: shared hit=14
+Planning:
+  Buffers: shared hit=297
+Planning Time: 0.387 ms
+Execution Time: 0.077 ms

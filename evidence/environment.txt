@@ -1,0 +1,67 @@
+Run UTC: 2026-10-13T14:29:09.491665+00:00
+Host: macOS-26.4-arm64-arm-64bit-Mach-O
+Host Python: 3.14.7
+$ docker version --format {{.Client.Version}} / {{.Server.Version}}
+29.8.0 / 29.5.2
+$ docker compose version
+Docker Compose version 5.5.1
+$ docker info --format VM CPUs={{.NCPU}}; memory bytes={{.MemTotal}}; arch={{.Architecture}}
+VM CPUs=6; memory bytes=12513603584; arch=aarch64
+$ docker compose exec -T node1 postgres --version
+postgres (PostgreSQL) 16.4 (Debian 16.4-1.pgdg120+2)
+$ docker compose exec -T node1 patroni --version
+patroni 3.3.2
+$ docker compose exec -T node1 python3 --version
+Python 3.11.2
+$ docker compose exec -T node1 pip3 freeze
+certifi==2022.9.24
+chardet==5.1.0
+charset-normalizer==3.0.1
+click==8.5.0
+dnspython==2.9.0
+idna==3.3
+patroni==3.3.2
+prettytable==3.18.0
+psutil==7.2.2
+psycopg2==2.9.10
+python-dateutil==2.9.0.post0
+python-etcd==0.4.5
+PyYAML==6.0
+requests==2.28.1
+six==1.16.0
+urllib3==1.26.12
+wcwidth==0.9.2
+ydiff==1.5
+$ docker compose exec -T etcd etcd --version
+etcd Version: 3.5.16
+Git SHA: f20bbad
+Go Version: go1.22.7
+Go OS/Arch: linux/arm64
+$ docker compose exec -T haproxy haproxy -v
+HAProxy version 2.9.15-e872a3f 2025/03/21 - https://haproxy.org/
+Status: End of life - please upgrade to branch 3.0.
+Known bugs: http://www.haproxy.org/bugs/bugs-2.9.15.html
+Running on: Linux 6.8.0-117-generic #117-Ubuntu SMP PREEMPT_DYNAMIC Thu May  7 17:26:37 UTC 2026 aarch64
+$ docker image inspect postgres:16.4-bookworm quay.io/coreos/etcd:v3.5.16 haproxy:2.9.15-alpine --format {{.RepoTags}} {{.Id}} {{.RepoDigests}}
+[postgres:16.4-bookworm] sha256:e62fbf9d3e2b49816a32c400ed2dba83e3b361e6833e624024309c35d334b412 [postgres@sha256:e62fbf9d3e2b49816a32c400ed2dba83e3b361e6833e624024309c35d334b412]
+[quay.io/coreos/etcd:v3.5.16] sha256:d967d98a12dc220a1a290794711dba7eba04b8ce465e12b02383d1bfbb33e159 [quay.io/coreos/etcd@sha256:d967d98a12dc220a1a290794711dba7eba04b8ce465e12b02383d1bfbb33e159]
+[haproxy:2.9-alpine haproxy:2.9.15-alpine] sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748 [haproxy@sha256:3e29449a6beed63262e36104adf531b4e41b359f61937303f5ea8607987b3748]
+$ docker compose ps
+NAME                             IMAGE                         COMMAND                  SERVICE   CREATED         STATUS         PORTS
+hse-pg-hw03-verified-etcd-1      quay.io/coreos/etcd:v3.5.16   "etcd --name=etcd --…"   etcd      7 seconds ago   Up 7 seconds   2379-2380/tcp
+hse-pg-hw03-verified-haproxy-1   haproxy:2.9.15-alpine         "docker-entrypoint.s…"   haproxy   7 seconds ago   Up 7 seconds   127.0.0.1:5000-5001->5000-5001/tcp
+hse-pg-hw03-verified-node1-1     hse-pg-hw03-verified-node1    "/entrypoint.sh"         node1     7 seconds ago   Up 7 seconds   127.0.0.1:5435->5432/tcp, 127.0.0.1:8018->8008/tcp
+hse-pg-hw03-verified-node2-1     hse-pg-hw03-verified-node2    "/entrypoint.sh"         node2     7 seconds ago   Up 7 seconds   127.0.0.1:5436->5432/tcp, 127.0.0.1:8019->8008/tcp
+TimeZone|UTC|
+default_transaction_isolation|read committed|
+effective_cache_size|524288|8kB
+enable_partition_pruning|on|
+enable_seqscan|on|
+jit|off|
+max_parallel_workers_per_gather|0|
+random_page_cost|4|
+seq_page_cost|1|
+server_version|16.4 (Debian 16.4-1.pgdg120+2)|
+shared_buffers|16384|8kB
+work_mem|16384|kB
+

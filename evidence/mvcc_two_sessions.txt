@@ -1,0 +1,7 @@
+A isolation = read committed
+B isolation = read committed
+A updated 10 -> 20, uncommitted; B sees 10
+A COMMIT; B next SELECT sees 20
+B UPDATE waits: (876, 'Lock', 'transactionid', [875]) ; blocker A pid = 875
+A ROLLBACK releases lock; B UPDATE completes then B ROLLBACK; final value=20
+PASS: all transactions ended; mart data untouched
